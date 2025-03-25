@@ -19,6 +19,10 @@ h1 {
   font-size: 16px;
 }
 
+.border {
+  border-bottom: 3px solid #ced8ef;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -54,5 +58,5 @@ li {
   align-items: center;
   width: 100%;
   padding: 10px 0;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 3px solid #ced8ef;
 }

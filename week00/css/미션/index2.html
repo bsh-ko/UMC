@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>미션2</title>
+    <style>
+      .layout-container {
+        width: 600px;
+        display: grid;
+        grid-template-columns: 150px repeat(3, 1fr);
+        grid-template-rows: auto 200px repeat(2, 1fr) 100px;
+        grid-template-areas:
+          "header menu menu menu"
+          "hero hero hero hero"
+          "main main . image"
+          "main main . extra"
+          "banner banner banner banner";
+      }
+      .layout-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+      }
+      .site-header {
+        grid-area: header;
+        background-color: #152542;
+        height: 50px;
+        display: grid;
+        place-items: center;
+      }
+      .site-nav {
+        grid-area: menu;
+        background-color: red;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .hero-section {
+        grid-area: hero;
+        background-color: skyblue;
+        display: grid;
+        place-items: center;
+      }
+      .main-content {
+        grid-area: main;
+        background-color: darkblue;
+        height: 250px;
+        width: 250px;
+        display: grid;
+        place-items: center;
+      }
+      .content-image {
+        grid-area: image;
+        background-color: mintcream;
+        color: #000;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .content-extra {
+        grid-area: extra;
+        background-color: green;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .page-banner {
+        grid-area: banner;
+        background-color: yellow;
+        color: #000;
+        display: grid;
+        place-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="layout-container">
+      <div class="layout-item site-header">HEADER</div>
+      <div class="layout-item site-nav">MENU</div>
+      <div class="layout-item hero-section">HERO</div>
+      <div class="layout-item main-content">MAIN</div>
+      <div class="layout-item content-image">IMAGE</div>
+      <div class="layout-item content-extra">EXTRA</div>
+      <div class="layout-item page-banner">BANNER</div>
+    </div>
+  </body>
+</html>

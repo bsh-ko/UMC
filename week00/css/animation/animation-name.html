@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animation Name</title>
+    <style>
+      @keyframes moveRight {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(200px);
+        }
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        animation-name: moveRight;
+        animation-duration: 2s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

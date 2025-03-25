@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Transform Translate 예제</title>
+    <style>
+      .flex {
+        display: flex;
+      }
+      .container {
+        width: 300px;
+        height: 300px;
+        border: 2px solid #333;
+        margin: 50px auto;
+      }
+
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: #4caf50;
+        transition: transform 0.5s ease;
+      }
+
+      .translate-x:hover {
+        transform: translateX(200px);
+      }
+
+      .translate-y:hover {
+        transform: translateY(200px);
+      }
+
+      .translate-xy:hover {
+        transform: translate(200px, 200px);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Transform Translate 예제</h1>
+
+    <div class="flex">
+      <div class="container">
+        <div class="box translate-x">X축 이동</div>
+      </div>
+
+      <div class="container">
+        <div class="box translate-y">Y축 이동</div>
+      </div>
+
+      <div class="container">
+        <div class="box translate-xy">XY축 이동</div>
+      </div>
+    </div>
+  </body>
+</html>

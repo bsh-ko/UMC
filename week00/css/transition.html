@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Transition Behavior</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        transition-property: opacity;
+        transition-duration: 1s;
+        transition-behavior: allow-discrete;
+        /* 
+normal: 전환은 개별 속성이 아닌 보간 가능한 속성에서만 시작됩니다.
+allow-discrete: 전환은 불연속 속성과 보간 가능한 속성 모두에 대해 시작됩니다. */
+      }
+      .box:hover {
+        opacity: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>transition-behavior: 불연속적 상태 전환 처리</h1>
+    <div class="box">Behavior</div>
+  </body>
+</html>

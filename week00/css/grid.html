@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>간단한 Grid</title>
+    <style>
+      .grid-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr 2fr;
+        gap: 10px;
+      }
+
+      .grid-item {
+        background-color: green;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border: 3px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item">1</div>
+      <div class="grid-item">2</div>
+      <div class="grid-item">3</div>
+    </div>
+  </body>
+</html>

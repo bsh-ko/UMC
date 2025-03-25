@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Animation Delay</title>
+    <style>
+      @keyframes scale {
+        from {
+          transform: scale(1);
+        }
+        to {
+          transform: scale(1.5);
+        }
+      }
+      .box {
+        width: 100px;
+        height: 100px;
+        margin: 50px auto;
+        background-color: red;
+        animation-name: scale;
+        animation-duration: 2s;
+        animation-delay: 3s;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+  </body>
+</html>

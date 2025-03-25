@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>튕기는 원 애니메이션</title>
+    <style>
+      .circle {
+        width: 100px;
+        height: 100px;
+        background-color: purple;
+        border-radius: 50%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        animation: bounce 1.5s ease-in infinite alternate;
+      }
+
+      @keyframes bounce {
+        0% {
+          top: 0;
+        }
+        100% {
+          top: calc(100vh - 100px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="circle"></div>
+  </body>
+</html>

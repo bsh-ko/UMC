@@ -6,9 +6,9 @@ const ThemeToggleButton = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="px-4 py-2 rounded-lg bg-gray-300 dark:bg-gray-700 text-black dark:text-white"
+      className="px-4 py-2 w-[150px;] rounded-full bg-light-button dark:bg-dark-button text-light-text dark:text-dark-tex "
     >
-      {theme === "light" ? "🌙 Dark Mode" : "☀️ Light Mode"}
+      {theme === "light" ? "🌙 다크 모드" : "☀️ 라이트 모드"}
     </button>
   );
 };

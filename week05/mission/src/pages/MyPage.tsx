@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 import { getMyInfo } from "../apis/auth";
 import { ResponseMyInfoDto } from "../types/auth";
 import { useNavigate } from "react-router-dom";
-import { removeToken } from "../apis/auth";
+import { removeTokens } from "../apis/auth";
 // import { useAuth } from "../context/AuthContext";
 import { axiosInstance } from "../apis/axios";
+import { LOCAL_STORAGE_KEY } from "../constants/key";
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState<ResponseMyInfoDto["data"] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  // const { logout } = useAuth();
 
   useEffect(() => {
     const getData = async () => {
@@ -72,7 +72,7 @@ const MyPage = () => {
 
   // 로그아웃 함수
   const handleLogout = () => {
-    removeToken();
+    removeTokens();
     axiosInstance.defaults.headers.common["Authorization"] = "";
     navigate("/");
   };

@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 import { removeTokens } from "../apis/auth";
 // import { useAuth } from "../context/AuthContext";
 import { axiosInstance } from "../apis/axios";
+import { LOCAL_STORAGE_KEY } from "../constants/key";
 
 const MyPage = () => {
   const [userInfo, setUserInfo] = useState<ResponseMyInfoDto["data"] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
-  // const { logout } = useAuth();
 
   useEffect(() => {
     const getData = async () => {

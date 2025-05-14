@@ -1,11 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { Navigate, Outlet } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-const HomeLayout = () => {
+const ProtectedLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const { accessToken } = useAuth();
 
     const toggleSidebar = () => {
         setIsSidebarOpen((prev) => !prev);
@@ -28,6 +31,10 @@ const HomeLayout = () => {
         return () => window.removeEventListener("resize", handleResize);
     }, [isSidebarOpen]);
 
+    if (!accessToken) {
+        return <Navigate to="/login" replace />;
+    }
+
     return (
         <div className="min-h-screen flex flex-col bg-[#161616]">
             <Navbar toggleSidebar={toggleSidebar} />
@@ -43,4 +50,4 @@ const HomeLayout = () => {
     );
 };
 
-export default HomeLayout;
+export default ProtectedLayout;

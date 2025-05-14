@@ -152,7 +152,7 @@ const LpDetailPage = () => {
               disabled
             />
             <button className="px-4 py-2 bg-pink-500 text-white rounded-md" disabled>
-              등록 (미구현)
+              등록
             </button>
           </div>
         </div>

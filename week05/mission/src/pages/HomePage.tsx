@@ -5,9 +5,12 @@ import { useInView } from "react-intersection-observer";
 import LpCard from "../components/LpCard/LpCard";
 import LpCardSkeletonList from "../components/LpCard/LpCardSkeletonList";
 import LpModal from "../components/LpCard/LpModal";
+import useDebounce from "../hooks/useDebounce";
 
 const HomePage = () => {
   const [search, setSearch] = useState("");
+  const debouncedSearch = useDebounce(search, 500);
+
   const [order, setOrder] = useState<"asc" | "desc">("desc");
   const {
     data: lps,
@@ -16,7 +19,7 @@ const HomePage = () => {
     fetchNextPage,
     isError,
     refetch,
-  } = useGetInfiniteLpList(5, search, order === "desc" ? PAGINATION_ORDER.desc : PAGINATION_ORDER.asc);
+  } = useGetInfiniteLpList(5, debouncedSearch, order === "desc" ? PAGINATION_ORDER.desc : PAGINATION_ORDER.asc);
   const { ref, inView } = useInView({ threshold: 0 });
   const [showModal, setShowModal] = useState(false);
 
@@ -30,14 +33,15 @@ const HomePage = () => {
     refetch();
   }, [order, refetch]);
 
-  useEffect(() => {
-    if (search === "") return;
-    const timer = setTimeout(() => {
-      refetch();
-    }, 500);
+  // debouncedSearch가 바뀌면 useInfiniteQuery 자체가 자동으로 refetch되기 때문에 주석처리
+  // useEffect(() => {
+  //   if (search === "") return;
+  //   const timer = setTimeout(() => {
+  //     refetch();
+  //   }, 500);
 
-    return () => clearTimeout(timer);
-  }, [search, refetch]);
+  //   return () => clearTimeout(timer);
+  // }, [search, refetch]);
 
   if (isError) {
     return <div>Error</div>;
@@ -46,6 +50,13 @@ const HomePage = () => {
   return (
     <div className="relative container mx-auto px-6 py-8">
       <div className="mb-8 flex flex-col sm:flex-row justify-between items-center">
+        <input
+          type="text"
+          placeholder="검색어를 입력하세요"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="mb-6 w-full sm:w-96 px-4 py-2 border rounded-lg shadow-md"
+        />
         <div className="flex w-full sm:w-auto justify-center sm:justify-start">
           <div className="flex border rounded-lg overflow-hidden shadow-lg">
             <button

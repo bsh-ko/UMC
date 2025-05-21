@@ -3,9 +3,11 @@ import { ResponseLpListDto } from "../types/lp";
 import { axiosInstance } from "./axios";
 
 export const getLPList = async (PaginationDto: PaginationDto): Promise<ResponseLpListDto> => {
-    const {data} = await axiosInstance.get('/v1/lps', {
-        params: PaginationDto, 
-    })
+  console.log("🚀 [API 요청] /v1/lps", PaginationDto, "⏰", new Date().toLocaleTimeString());
 
-    return data; 
-}; 
+  const { data } = await axiosInstance.get("/v1/lps", {
+    params: PaginationDto,
+  });
+
+  return data;
+};

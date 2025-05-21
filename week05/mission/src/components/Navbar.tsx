@@ -33,9 +33,6 @@ const Navbar = ({ toggleSidebar }: { toggleSidebar: () => void }) => {
         </button>
       </div>
       <div className="flex gap-3">
-        <button onClick={() => nav("search")} className="py-2 hover:cursor-pointer">
-          🔍
-        </button>
         {!accessToken && (
           <>
             <button

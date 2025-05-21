@@ -11,7 +11,7 @@ import ProtectedLayout from "./layouts/ProtectedLayout";
 import GoogleLoginRedirectPage from "./pages/GoogleLoginRedirectPage";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-import LpDetailPage from "./pages/LpDetatilPage";
+import LpDetailPage from "./pages/LpDetailPage";
 
 const publicRoutes: RouteObject[] = [
   {

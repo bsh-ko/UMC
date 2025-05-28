@@ -1,5 +1,16 @@
+import cartItems from "../constants/cartItems";
+import CartItem from "./CartItem";
+
 const CartList = () => {
-  return <div>CartList</div>;
+  return (
+    <div className="flex flex-col items-center justify-center">
+      <ul>
+        {cartItems.map((item, idx) => (
+          <CartItem key={item.id} lp={item} />
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default CartList;

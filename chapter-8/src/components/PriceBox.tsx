@@ -1,23 +1,29 @@
-import { useDispatch, useSelector } from "../hooks/useCustomRedux";
-import { clearCart } from "../slices/cartSlice";
-import { openModal } from "../slices/modalSlice";
+import { useCartInfo } from "../hooks/useCartStore";
+import { useModalStore } from "../hooks/useModalStore";
+// import { openModal } from "../slices/modalSlice";
+// import { useDispatch, useSelector } from "../hooks/useCustomRedux";
+// import { clearCart } from "../slices/cartSlice";
+// import { openModal } from "../slices/modalSlice";
 
 const Pricebox = () => {
-  const { total } = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  const { total } = useCartInfo();
+  const { openModal } = useModalStore();
 
-  const handleInitializeCart = () => {
-    dispatch(clearCart());
-  };
+  // const { total } = useSelector((state) => state.cart);
+  // const dispatch = useDispatch();
 
-  const open = () => {
-    dispatch(openModal());
-  };
+  // const handleInitializeCart = () => {
+  //   dispatch(clearCart());
+  // };
+
+  // const open = () => {
+  //   dispatch(openModal());
+  // };
 
   return (
     <div className="flex justify-center p-8">
       <div className="flex justify-between p-20 w-full max-w-5xl items-center">
-        <button onClick={open} className="border p-4 rounded-md cursor-pointer">
+        <button onClick={openModal} className="border p-4 rounded-md cursor-pointer">
           장바구니 초기화
         </button>
         <div className="bg-white shadow-md rounded-2xl border border-gray-200 px-8 py-6 text-lg font-semibold text-gray-800">

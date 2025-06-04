@@ -1,41 +1,54 @@
-# 🎬 week10 영화 사이트 렌더링 최적화 미션
+# React + TypeScript + Vite
 
----
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## ✅ 프로젝트 목표
+Currently, two official plugins are available:
 
-- 영화 검색 기능을 구현한다.
-- 검색 결과에서 영화를 클릭하면 **모달** 형태로 상세 정보를 불러온다.
-- **React Profiler**를 활용하여 **리렌더링 최적화**를 검증한다.
-- **React.memo, useCallback, useMemo**를 활용해 **영화 목록만 리렌더링**되도록 최적화한다.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
----
+## Expanding the ESLint configuration
 
-## ✅ 구현 사항
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-- [ ] **영화 검색 기능**
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-  - 사용자가 입력한 키워드를 기반으로 영화를 검색
-  - 검색 결과를 리스트로 보여줌
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-- [ ] **모달 상세 정보**
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-  - 검색 결과에서 영화를 클릭하면 모달로 상세 정보를 표시
-
-- [ ] **렌더링 최적화**
-  - 영화 리스트를 **React.memo**로 감싸 불필요한 렌더링 방지
-  - `useCallback`으로 이벤트 핸들러 최적화
-  - `useMemo`로 비싼 연산의 캐싱
-  - Profiler 도구를 통해 최적화 효과 확인
-
----
-
-## ✅ 기술 스택
-
-- **React**
-- **Tailwind CSS** (스타일링)
-- **React Profiler** (렌더링 최적화 검증)
-
----
-
-## 📂 디렉토리 구조 예시
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
